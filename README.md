@@ -4,18 +4,6 @@ O aplicativo Concept tem por objetivo auxiliar estudantes (de qualquer nível es
 
 ## 🚀 Começando
 
-### 📋 Pré-requisitos
-
-```
-ExpressJS
-```
-
-```
-NodeJS
-```
-
-### 🔧 Instalação
-
 No terminal NodeJS (utilizado o Visual Studio Code), rode os seguintes comandos para rodar o projeto com os pacotes e frameworks nas versões utilizadas na etapa de desenvolvimento. Obs: Evite substituir o comando 'npm' por algum símile:
 
 ```
