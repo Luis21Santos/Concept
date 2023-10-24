@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include("../partials/head"); %>
+  <body>
+    <%- include("../partials/header"); %>
+
+    <div class="page-content">
+      <a href="/concepts/show/<%=concept.id%>"
+        ><button class="top-btns">Back to concept</button></a
+      >
+      <h1>Edit concept</h1>
+      <form action="/concepts/edit/<%=concept.id%>/save-changes" method="POST">
+        <!--concept id-->
+        <input class="hidden" name="id" value="<%=concept.id%>" />
+        <!--concept name-->
+        <label for="concept">Concept:</label>
+        <input
+          id="concept"
+          type="text"
+          name="concept"
+          value="<%=concept.concept%>"
+        />
+        <br />
+
+        <!--concept description-->
+        <label for="description">Description:</label>
+        <input
+          id="description"
+          type="text"
+          name="description"
+          value="<%=concept.description%>"
+        />
+        <br />
+        <!--buttons-->
+
+        <a href="/concepts/show/<%=concept.id%>"
+          ><button type="submit">Save changes</button></a
+        >
+      </form>
+    </div>
+  </body>
+</html>

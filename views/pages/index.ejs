@@ -1,0 +1,25 @@
+<html lang="pt-br">
+  <%- include("../partials/head"); %>
+  <body>
+    <%- include("../partials/header"); %>
+
+    <!--content-->
+    <div class="page-content">
+      <!--search bar-->
+      <div class="search-bar-container">
+        <input
+          id="search-bar"
+          onkeyup="search()"
+          type="text"
+          placeholder="Search..."
+        />
+      </div>
+
+      <div class="content-container">
+        <%- include("../partials/content"); %>
+      </div>
+    </div>
+
+    <%- include("../partials/script"); %>
+  </body>
+</html>

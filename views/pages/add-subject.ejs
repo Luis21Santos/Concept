@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include("../partials/head"); %>
+  <body>
+    <%- include("../partials/header"); %>
+    <div class="page-content">
+      <!--go back button-->
+      <a href="/<%=user.id%>"><button class="">Back to dashboard</button></a>
+      <h1>Add new subject</h1>
+      <form action="/subjects/add/<%=user.id%>" method="POST">
+        <!--user id-->
+
+        <!--subject name-->
+        <label for="subject">Subject:</label>
+        <input id="subject" type="text" name="subject" /><br />
+
+        <!--subject description-->
+        <label for="description">Description:</label>
+        <input id="description" type="text" name="description" /><br />
+
+        <!--color picker-->
+        <label for="colorpicker">Color Picker:</label>
+        <input type="color" id="colorpicker" value="#0000ff" name="color" />
+        <br />
+
+        <!--buttons-->
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  </body>
+</html>

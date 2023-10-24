@@ -1,0 +1,112 @@
+<!--subjects-->
+<fieldset class="content-subdivision-container">
+  <!--subtitle-->
+  <p class="subdivision-title">Subjects</p>
+
+  <!--number of results-->
+  <% if (subjects.length) { %>
+  <p><%=subjects.length%> results</p>
+  <%}%>
+
+  <!--add subject btn-->
+  <a href=" /subjects/create/<%=user.id%>"><button>Add subject</button></a>
+
+  <!--subjects list-->
+  <% if (subjects.length) { %>
+  <ul class="no-bullet-list">
+    <!--list of subjects-->
+    <% for(let k=0; k< subjects.length; k++){ %>
+    <li>
+      <div class="item-container">
+        <!--ball-->
+        <div class="ball--link">
+          <p class="hidden color"><%=subjects[k].color%></p>
+
+          <div class="ball hidden"></div>
+
+          <!--link-->
+          <a href="/subjects/show/<%=subjects[k].id%>">
+            <p><%=subjects[k].subject%></p>
+          </a>
+        </div>
+      </div>
+    </li>
+    <% } %> <% } %>
+  </ul>
+</fieldset>
+
+<!--sections-->
+<fieldset class="content-subdivision-container">
+  <!--subtitle-->
+  <p class="subdivision-title">Sections</p>
+
+  <!--number of results -->
+  <% if(sections.length){ %>
+  <p><%=sections.length%> results</p>
+  <%}%>
+
+  <!--add section btn-->
+  <% if(subjects.length>=1) { %>
+  <a href="/sections/create/<%=user.id%>"><button>Add section</button></a>
+  <% } %>
+
+  <!--empty message-->
+  <% if(subjects.length===0) { %>
+  <div class="empty-msg">
+    <p>No section added yet! First create a subject.</p>
+  </div>
+  <% }%>
+
+  <!--sections list-->
+  <ul class="no-bullet-list">
+    <!--list of sections-->
+    <% for(let x=0; x< sections.length; x++){%>
+    <li>
+      <div class="item-container">
+        <a href="/sections/show/<%=sections[x].id%>">
+          <p><%=sections[x].section%></p></a
+        >
+      </div>
+    </li>
+    <% } %>
+  </ul>
+</fieldset>
+
+<!--concepts-->
+<fieldset class="content-subdivision-container">
+  <!--subtitle-->
+  <p class="subdivision-title">Concepts</p>
+
+  <!--number of results-->
+  <% if (concepts.length){ %>
+  <p><%=concepts.length%> results</p>
+  <%}%>
+
+  <!--Add concept option, Only visible if there is at least one section to create it inside of-->
+  <% if(sections.length>0) { %>
+  <a href=" /concepts/create/<%=user.id%>"
+    ><button class="add-button">Add concept</button></a
+  >
+  <% } %>
+
+  <!--empty message-->
+  <% if(sections.length===0) { %>
+  <div class="empty-msg">
+    <p>No concept added yet! First create a section</p>
+  </div>
+  <% }%>
+
+  <!--concepts list-->
+  <ul class="no-bullet-list">
+    <% for(var i=0; i< concepts.length; i++) { %>
+    <li>
+      <div class="item-container">
+        <div class="pin"></div>
+        <a href="/concepts/show/<%=concepts[i].id%>"
+          ><p><%= concepts[i].concept %></p></a
+        >
+      </div>
+    </li>
+    <% }%>
+  </ul>
+</fieldset>

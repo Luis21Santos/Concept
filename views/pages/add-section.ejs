@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include("../partials/head"); %>
+  <body>
+    <%- include("../partials/header"); %>
+    <div class="page-content">
+      <!--go back button-->
+      <a href="/<%=userId%>"><button>Back to dashboard</button></a>
+
+      <h1>Add new section</h1>
+      <form action="/sections/add/<%=userId%>" method="POST">
+        <!--section name-->
+        <label for="section">Section: </label>
+        <input id="section" type="text" name="section" /> <br />
+
+        <!--section description-->
+        <label for="description">Description: </label>
+        <input id="description" type="text" name="description" />
+        <br />
+
+        <!--color picker-->
+        <label for="colorpicker">Color Picker:</label>
+        <input type="color" id="colorpicker" value="#0000ff" name="color" />
+        <br />
+
+        <!--assigning-->
+        <div class="assign">
+          <p>Which subject does this section belong to?</p>
+
+          <!--looping over the list of all subjects saved in the database-->
+          <% for(let y=0; y< subjects.length; y++) { %>
+          <div class="assign-item">
+            <input
+              type="radio"
+              id="<%=subjects[y].id%>"
+              value="<%=subjects[y].id%>"
+              name="subjectId"
+            />
+            <label for="<%=subjects[y].subject%>"
+              ><%=subjects[y].subject%></label
+            >
+            <br />
+          </div>
+
+          <% } %>
+        </div>
+
+        <!--buttons-->
+        <a href="/"><button type="submit">Submit</button></a>
+      </form>
+    </div>
+  </body>
+</html>

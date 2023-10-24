@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <%- include("../partials/head"); %>
+  <body>
+    <div class="page-content">
+      <!--logo-->
+      <div class="logo--register-page">
+        <img src="/img/logo.png" alt="logo" width="200" />
+      </div>
+
+      <!--register form-->
+      <fieldset id="register" class="register">
+        <h1>Create new account</h1>
+        <form method="POST" action="/users/register">
+          <!--username-->
+          <label for="username">Username:</label>
+          <input type="text" name="username" class="form-control" required />
+          <br />
+          <!--email-->
+          <label for="email">Email:</label>
+          <input type="email" name="email" class="form-control" required />
+          <br />
+          <!--password-->
+          <label for="password">Password:</label>
+          <input
+            type="password"
+            name="password"
+            class="form-control"
+            required
+          />
+          <br />
+          <!--repeat password. Add later-->
+          <!--button-->
+            <a href=""><button type="submit">Register</button></a>
+            
+          </div>
+        </form>
+      </fieldset>
+      <div class="register--go-back-btn">
+        <a href="/"><p>Go back to homepage</p></a>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <%- include("../partials/head"); %>
+  <body>
+    <%- include("../partials/header"); %>
+    <div class="page-content">
+      <h1 class="settings-title">Settings</h1>
+      <!--alert msg-->
+      <div class="alert"></div>
+      <!--Account-->
+      <div class="account settings-item">
+        <h2>User credentials</h2>
+        <p>Write over your current credentials in order to change them</p>
+        <form method="POST" action="/users/change-account/<%=user.id%>">
+          <!--username-->
+          <label for="username">Username:</label>
+          <input name="username" id="username" value="<%=user.username%>" />
+          <br />
+          <!--email-->
+          <label for="email">Email:</label>
+          <input id="email" name="email" value="<%=user.email%>" />
+          <br />
+          <!--Change password.Add later-->
+
+          <button type="submit">Change credentials</button>
+        </form>
+      </div>
+      <!--reset-->
+      <br />
+      <div class="reset settings-item">
+        <h2>Reset account</h2>
+        <p>
+          By doing so, you lose all the concepts, sections, subects and points
+          saved so far. Think well, the process can't be reversed.
+        </p>
+
+        <a href="/users/reset/<%=user.id%>"><button>Reset</button></a>
+      </div>
+      <br />
+      <!--delete account-->
+      <div class="delete-account settings-item">
+        <h2>Delete account</h2>
+        <p>
+          This process cannot be undoned later. All the subjects, sections,
+          concepts and points will be lost.
+        </p>
+        <a href="/users/delete-account/<%=user.id%>"
+          ><button>Delete account</button></a
+        >
+      </div>
+    </div>
+  </body>
+</html>

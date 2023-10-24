@@ -1,0 +1,376 @@
+@use "sass:map";
+@import url("https://fonts.googleapis.com/css2?family=Acme&display=swap");
+
+//colors
+$white: #fafaf9;
+$darker-gray: #292524;
+$dark-gray: #44403c;
+$light-gray: #78716c;
+$lighter-gray: #a8a29e;
+
+//typography
+$font-family: "Arial";
+$font-weight: (
+  "regular": 200,
+  "medium": 600,
+  "bold": 1000,
+);
+//using major-third typescale
+$font-scale: (
+  "size-1": 1rem,
+  "size-2": 1.25rem,
+  "size-3": 1.563rem,
+  "size-4": 1.953rem,
+  "size-5": 2.441rem,
+  "size-6": 3.052rem,
+);
+
+//whitespace and line-height scale
+$space-scale: (
+  "space-1": 1rem,
+  "space-2": 1.25rem,
+  "space-3": 1.563rem,
+  "space-4": 1.953rem,
+  "space-5": 2.441rem,
+  "space-6": 3.052rem,
+);
+
+//Reset
+.hidden {
+  display: none;
+}
+* {
+  box-sizing: content-box;
+  margin: 0;
+  padding: 0;
+}
+
+/*Layouts*/
+body {
+  background-color: $darker-gray;
+  color: $white;
+  font-family: $font-family;
+  font-weight: map.get($font-weight, "regular");
+  padding: 32px 48px;
+  align-items: center;
+}
+.header {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  margin: auto;
+  ul li {
+    margin-right: 20px;
+    font-size: map.get($font-scale, "size-2");
+    font-weight: map.get($font-weight, "regular");
+    //boldness when hovering navbar items. add later
+  }
+  .logo {
+    margin: auto;
+  }
+}
+
+/*Lists*/
+.horizontal-list {
+  display: flex;
+}
+.no-bullet-list {
+  list-style-type: none;
+}
+
+/*Containers*/
+/*Content*/
+.page-content {
+  width: 80%;
+  margin: auto;
+  margin-top: 0.5rem;
+  .search-bar-container {
+    display: flex;
+    margin: auto;
+    #search-bar {
+      margin: auto;
+    }
+  }
+  .id {
+    font-size: map.get($font-scale, "size-2");
+    font-weight: map.get($font-weight, "medium");
+  }
+  .name {
+    font-size: map.get($font-scale, "size-6");
+    font-weight: map.get($font-weight, "medium");
+  }
+  .description {
+    margin-top: map.get($space-scale, "space-2");
+    margin-left: map.get($space-scale, "space-6");
+    p {
+      font-size: map.get($font-scale, "size-2");
+    }
+  }
+  .template-list {
+    margin-left: map.get($space-scale, "space-6");
+    margin-top: map.get($space-scale, "space-6");
+    .template-list-title {
+      font-size: map.get($font-scale, "size-2");
+      margin-bottom: map.get($space-scale, "space-1");
+      text-transform: uppercase;
+    }
+    .item-container {
+      margin-bottom: 0.5rem;
+      font-size: map.get($font-scale, "size-2");
+    }
+  }
+  .add-new-point-container {
+    margin-top: map.get($space-scale, "space-6");
+    margin-bottom: map.get($space-scale, "space-6");
+  }
+}
+.search-bar {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  width: 80%;
+  margin-bottom: map.get($space-scale, "space-4");
+}
+.content-container {
+  display: flex;
+  margin-top: map.get($space-scale, "space-2");
+  justify-content: space-between;
+  .content-subdivision-container {
+    width: 33%;
+    border-style: none;
+    .subdivision-title {
+      font-size: map.get($font-scale, "size-3");
+      font-weight: map.get($font-weight, "medium");
+      text-transform: uppercase;
+    }
+  }
+}
+
+/*Item-container*/
+.item-container {
+  background-color: $light-gray;
+  padding: 1rem;
+  cursor: pointer;
+  border-radius: 10px;
+  transition: 0.5s;
+  &:hover {
+    background-color: $darker-gray;
+    transform: scale(1.1);
+    text-decoration: underline;
+    color: $white;
+    .point-btns {
+      color: $white;
+    }
+  }
+  .point-btns {
+    color: $light-gray;
+    transition: 0.5s;
+    margin-bottom: 0.5rem;
+    margin-right: 0.5rem;
+  }
+  a {
+    text-decoration: none;
+    p {
+      font-size: 20px;
+    }
+  }
+}
+
+/*Links*/
+a {
+  color: $white;
+  transition: 0.5s;
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+/*Buttons*/
+button {
+  a {
+    color: $darker-gray;
+  }
+  border: none;
+  background-color: $light-gray;
+  font-size: 18px;
+  padding: 6px 12px;
+  border-radius: 100px;
+  font-family: inherit;
+  cursor: pointer;
+  transition: 0.5s;
+  &:hover {
+    background-color: $darker-gray;
+    color: $white;
+  }
+}
+button {
+  margin-top: 0.5rem;
+  margin-bottom: map.get($space-scale, "space-2");
+}
+.top-btns {
+  li {
+    margin-right: 0.5rem;
+    margin-bottom: map.get($space-scale, "space-1");
+  }
+}
+/*Input*/
+input {
+  background-color: $light-gray;
+  border: none;
+  border-radius: 100px;
+  margin-top: 10px;
+  padding: 16px;
+  font-size: 18px;
+  color: inherit;
+  font-family: inherit;
+  &::placeholder {
+    color: $white;
+  }
+}
+#searchbar {
+  margin-left: 15%;
+  padding: 15px;
+  border-radius: 10px;
+}
+input[type="text"] {
+  width: 30%;
+  -webkit-transition: width 0.2s ease-in-out;
+  transition: width 0.2s ease-in-out;
+}
+/* When the input field gets focus,
+        change its width to 100% */
+input[type="text"]:focus {
+  width: 40%;
+}
+#list {
+  font-size: 1.5em;
+  margin-left: 90px;
+}
+.item-container {
+  display: list-item;
+}
+
+/*Website map*/
+.website-map {
+  font-size: map.get($font-scale, "size-2");
+  margin-top: 0.5rem;
+}
+/*Empty message*/
+.empty-msg {
+  font-size: map.get($font-scale, "size-2");
+  margin-top: map.get($space-scale, "space-2");
+  margin: map.get($space-scale, "space-1");
+  button {
+    margin-top: map.get($space-scale, "space-1");
+  }
+}
+
+/*Ball*/
+.ball--link {
+  display: flex;
+}
+.ball {
+  background-color: pink;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 100%;
+  margin-right: 0.5rem;
+}
+
+/*Homepage*/
+.brand {
+  img {
+    max-height: 70vh;
+  }
+  .brand-text h2 {
+    font-size: map.get($font-scale, "size-2");
+    margin-top: map.get($space-scale, "space-1");
+    max-width: 50vw;
+  }
+  .to-do-call h3 {
+    font-size: map.get($font-scale, "size-1");
+    margin-top: map.get($space-scale, "space-1");
+    max-width: 50vw;
+  }
+}
+
+.homepage-main {
+  display: flex;
+  max-height: 100vh;
+  .login {
+    width: 30%;
+  }
+  .brand {
+    width: 70%;
+    img {
+      width: 70%;
+      height: 60%;
+    }
+  }
+}
+.login-container {
+  position: absolute;
+  bottom: map.get($space-scale, "space-1");
+  border-color: $darker-gray;
+  border-width: 2px;
+  padding: map.get($space-scale, "space-3");
+  border-radius: 5%;
+  background-color: $dark-gray;
+}
+.brand-container {
+  bottom: map.get($space-scale, "space-1");
+}
+.register {
+  bottom: map.get($space-scale, "space-1");
+  border-color: $darker-gray;
+  border-width: 2px;
+  padding: map.get($space-scale, "space-3");
+  border-radius: 5%;
+  background-color: $dark-gray;
+  max-width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+.logo--register-page {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: fit-content;
+}
+.register--go-back-btn {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: fit-content;
+  margin-top: map.get($space-scale, "space-1");
+}
+
+/*Settings*/
+.settings-item {
+  border-bottom-color: $white;
+  border-bottom-style: groove;
+  border-bottom-width: 2px;
+  form {
+    margin-top: map.get($space-scale, "space-2");
+  }
+  p {
+    margin-top: map.get($space-scale, "space-1");
+  }
+  &.delete-account {
+    border-style: none;
+    margin-bottom: map.get($space-scale, "space-6");
+  }
+}
+.settings-title {
+  margin-bottom: map.get($space-scale, "space-3");
+}
+/*Add page*/
+.assign {
+  margin-top: map.get($space-scale, "space-4");
+  margin-bottom: map.get($space-scale, "space-1");
+  font-size: map.get($font-scale, "size-2");
+  .assign-item {
+    label {
+      font-size: map.get($font-scale, "size-1");
+    }
+  }
+}

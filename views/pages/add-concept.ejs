@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include("../partials/head"); %>
+  <body>
+    <%- include("../partials/header"); %>
+
+    <div class="page-content">
+      <!--go back button-->
+      <a href="/<%=user.id%>"><button>Back to dashboard</button></a>
+      <h1>Add new concepts</h1>
+      <form action="/concepts/add/<%=user.id%>" method="POST">
+        <!--concept name-->
+        <label for="concept">Concept:</label>
+        <input id="concept" type="text" name="concept" />
+        <br />
+
+        <!--concept description-->
+        <label for="description">Description:</label>
+        <input id="description" type="text" name="description" />
+        <br />
+
+        <!--color picker-->
+        <label for="colorpicker">Color Picker:</label>
+        <input type="color" id="colorpicker" value="#0000ff" name="color" />
+        <br />
+
+        <!--pertaining section-->
+        <div class="assign">
+          <p>Which subject and section does this concept belong to?</p>
+
+          <!--looping over the subjects-->
+          <% for(let b=0; b< subjects.length; b++){ %>
+
+          <!--looping over the sections-->
+          <% for(let a=0; a< sections.length; a++){ %>
+
+          <!--checking if the section belongs to current iterated subject and displaying it-->
+          <% if(sections[a].subjectId === subjects[b].id) {%>
+          <div class="assign-item">
+            <input
+              type="radio"
+              id="<%=sections[a].id%>"
+              value="<%=sections[a].id%>"
+              name="sectionId"
+            />
+            <label for="<%=sections[a].id%>"
+              ><%=subjects[b].subject%>/<%=sections[a].section%></label
+            >
+
+            <br />
+          </div>
+
+          <% } %> <% } %> <% } %>
+        </div>
+
+        <br />
+        <!--buttons-->
+        <a href="/"><button type="submit">Submit</button></a>
+      </form>
+    </div>
+  </body>
+</html>

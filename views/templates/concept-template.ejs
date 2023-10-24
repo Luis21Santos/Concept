@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <%- include("../partials/head") %>
+  <body>
+    <%- include("../partials/header") %>
+    <div class="page-content">
+      <!--go back, delete and edit buttons-->
+      <ul class="horizontal-list no-bullet-list top-btns">
+        <li>
+          <a href="/concepts/edit/<%=concept.id%>"><button>Edit</button></a>
+        </li>
+        <li>
+          <a href="/concepts/delete/<%=concept.id%>"><button>Delete</button></a>
+        </li>
+      </ul>
+
+      <!--concept info-->
+      <!--add concept section and subject later-->
+      <p class="hidden color"><%=concept.color%></p>
+      <p class="website-map">
+        <a href="/subjects/show/<%=subject.id%>"><%=subject.subject%></a>
+        <span>></span>
+        <a href="/sections/show/<%=section.id%>"><%=section.section%></a>
+      </p>
+      <p class="name"><%=concept.concept%></p>
+      <div class="description"><p><%= concept.description%></p></div>
+
+      <!--points-->
+      <div class="template-list">
+        <p class="template-list-title">Points</p>
+        <ul class="no-bullet-list">
+          <!--no points added yet message-->
+          <% if(!relatedPoints.length){ %>
+          <div class="empty-msg">
+            <p>No points!</p>
+          </div>
+          <% } %>
+          <!--looping over all related points-->
+          <% for(var j=0; j< relatedPoints.length; j++) { %>
+          <!--list of points-->
+          <div class="item-container">
+            <li>
+              <!--CRUD operations-->
+              <div>
+                <ul class="horizontal-list no-bullet-list">
+                  <li>
+                    <a
+                      href="/concepts/show/<%=concept.id%>/points/edit/<%=relatedPoints[j].id%>"
+                      ><button class="point-btns">Edit</button></a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="/concepts/show/<%=concept.id%>/points/delete/<%=relatedPoints[j].id%>"
+                      ><button class="point-btns">Delete</button></a
+                    >
+                  </li>
+                </ul>
+              </div>
+
+              <!--point per se-->
+              <p><%=relatedPoints[j].point%></p>
+              <br />
+            </li>
+          </div>
+          <% } %>
+        </ul>
+      </div>
+
+      <!--add new point-->
+      <div class="add-new-point-container">
+        <h2>Add new point</h2>
+        <form action="/concepts/show/<%=concept.id%>/points/add" method="POST">
+          <input
+            type="hidden"
+            value="<%=concept.subjectId%>"
+            name="subjectId"
+          />
+          <input
+            type="hidden"
+            value="<%=concept.sectionId%>"
+            name="sectionId"
+          />
+          <input id="point" name="point" type="text" />
+          <a href="/concepts/show/<%=concept.id%>"
+            ><button type="submit">Add</button></a
+          >
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

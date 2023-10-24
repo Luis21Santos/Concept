@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include("../partials/head"); %>
+  <body>
+    <%- include("../partials/header"); %>
+    <div class="page-content">
+      <a href="/concepts/show/<%=conceptId%>"
+        ><button class="top-btns">Back to concept</button></a
+      >
+      <h1>Edit point</h1>
+      <form
+        action="/concepts/show/<%=point.conceptId%>/points/edit/<%=point.id%>/save-changes-of-point"
+        ,
+        method="POST"
+      >
+        <!--point id-->
+        <input class="hidden" name="id" value="<%=point.id%>" />
+        <!--point name-->
+        <input id="point" type="text" name="point" value="<%=point.point%>" />
+        <br />
+
+        <!--buttons-->
+        <a href="/concepts/show/<%=conceptId%>"
+          ><button type="submit">Save changes</button></a
+        >
+      </form>
+    </div>
+  </body>
+</html>

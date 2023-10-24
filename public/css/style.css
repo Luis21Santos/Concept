@@ -1,0 +1,356 @@
+@import url("https://fonts.googleapis.com/css2?family=Acme&display=swap");
+.hidden {
+  display: none;
+}
+
+* {
+  box-sizing: content-box;
+  margin: 0;
+  padding: 0;
+}
+
+/*Layouts*/
+body {
+  background-color: #292524;
+  color: #fafaf9;
+  font-family: "Arial";
+  font-weight: 200;
+  padding: 32px 48px;
+  align-items: center;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  margin: auto;
+}
+.header ul li {
+  margin-right: 20px;
+  font-size: 1.25rem;
+  font-weight: 200;
+}
+.header .logo {
+  margin: auto;
+}
+
+/*Lists*/
+.horizontal-list {
+  display: flex;
+}
+
+.no-bullet-list {
+  list-style-type: none;
+}
+
+/*Containers*/
+/*Content*/
+.page-content {
+  width: 80%;
+  margin: auto;
+  margin-top: 0.5rem;
+}
+.page-content .search-bar-container {
+  display: flex;
+  margin: auto;
+}
+.page-content .search-bar-container #search-bar {
+  margin: auto;
+}
+.page-content .id {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+.page-content .name {
+  font-size: 3.052rem;
+  font-weight: 600;
+}
+.page-content .description {
+  margin-top: 1.25rem;
+  margin-left: 3.052rem;
+}
+.page-content .description p {
+  font-size: 1.25rem;
+}
+.page-content .template-list {
+  margin-left: 3.052rem;
+  margin-top: 3.052rem;
+}
+.page-content .template-list .template-list-title {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+}
+.page-content .template-list .item-container {
+  margin-bottom: 0.5rem;
+  font-size: 1.25rem;
+}
+.page-content .add-new-point-container {
+  margin-top: 3.052rem;
+  margin-bottom: 3.052rem;
+}
+
+.search-bar {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  width: 80%;
+  margin-bottom: 1.953rem;
+}
+
+.content-container {
+  display: flex;
+  margin-top: 1.25rem;
+  justify-content: space-between;
+}
+.content-container .content-subdivision-container {
+  width: 33%;
+  border-style: none;
+}
+.content-container .content-subdivision-container .subdivision-title {
+  font-size: 1.563rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+/*Item-container*/
+.item-container {
+  background-color: #78716c;
+  padding: 1rem;
+  cursor: pointer;
+  border-radius: 10px;
+  transition: 0.5s;
+}
+.item-container:hover {
+  background-color: #292524;
+  transform: scale(1.1);
+  text-decoration: underline;
+  color: #fafaf9;
+}
+.item-container:hover .point-btns {
+  color: #fafaf9;
+}
+.item-container .point-btns {
+  color: #78716c;
+  transition: 0.5s;
+  margin-bottom: 0.5rem;
+  margin-right: 0.5rem;
+}
+.item-container a {
+  text-decoration: none;
+}
+.item-container a p {
+  font-size: 20px;
+}
+
+/*Links*/
+a {
+  color: #fafaf9;
+  transition: 0.5s;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+/*Buttons*/
+button {
+  border: none;
+  background-color: #78716c;
+  font-size: 18px;
+  padding: 6px 12px;
+  border-radius: 100px;
+  font-family: inherit;
+  cursor: pointer;
+  transition: 0.5s;
+}
+button a {
+  color: #292524;
+}
+button:hover {
+  background-color: #292524;
+  color: #fafaf9;
+}
+
+button {
+  margin-top: 0.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.top-btns li {
+  margin-right: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+/*Input*/
+input {
+  background-color: #78716c;
+  border: none;
+  border-radius: 100px;
+  margin-top: 10px;
+  padding: 16px;
+  font-size: 18px;
+  color: inherit;
+  font-family: inherit;
+}
+input::placeholder {
+  color: #fafaf9;
+}
+
+#searchbar {
+  margin-left: 15%;
+  padding: 15px;
+  border-radius: 10px;
+}
+
+input[type=text] {
+  width: 30%;
+  -webkit-transition: width 0.2s ease-in-out;
+  transition: width 0.2s ease-in-out;
+}
+
+/* When the input field gets focus,
+        change its width to 100% */
+input[type=text]:focus {
+  width: 40%;
+}
+
+#list {
+  font-size: 1.5em;
+  margin-left: 90px;
+}
+
+.item-container {
+  display: list-item;
+}
+
+/*Website map*/
+.website-map {
+  font-size: 1.25rem;
+  margin-top: 0.5rem;
+}
+
+/*Empty message*/
+.empty-msg {
+  font-size: 1.25rem;
+  margin-top: 1.25rem;
+  margin: 1rem;
+}
+.empty-msg button {
+  margin-top: 1rem;
+}
+
+/*Ball*/
+.ball--link {
+  display: flex;
+}
+
+.ball {
+  background-color: pink;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 100%;
+  margin-right: 0.5rem;
+}
+
+/*Homepage*/
+.brand img {
+  max-height: 70vh;
+}
+.brand .brand-text h2 {
+  font-size: 1.25rem;
+  margin-top: 1rem;
+  max-width: 50vw;
+}
+.brand .to-do-call h3 {
+  font-size: 1rem;
+  margin-top: 1rem;
+  max-width: 50vw;
+}
+
+.homepage-main {
+  display: flex;
+  max-height: 100vh;
+}
+.homepage-main .login {
+  width: 30%;
+}
+.homepage-main .brand {
+  width: 70%;
+}
+.homepage-main .brand img {
+  width: 70%;
+  height: 60%;
+}
+
+.login-container {
+  position: absolute;
+  bottom: 1rem;
+  border-color: #292524;
+  border-width: 2px;
+  padding: 1.563rem;
+  border-radius: 5%;
+  background-color: #44403c;
+}
+
+.brand-container {
+  bottom: 1rem;
+}
+
+.register {
+  bottom: 1rem;
+  border-color: #292524;
+  border-width: 2px;
+  padding: 1.563rem;
+  border-radius: 5%;
+  background-color: #44403c;
+  max-width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.logo--register-page {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: fit-content;
+}
+
+.register--go-back-btn {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: fit-content;
+  margin-top: 1rem;
+}
+
+/*Settings*/
+.settings-item {
+  border-bottom-color: #fafaf9;
+  border-bottom-style: groove;
+  border-bottom-width: 2px;
+}
+.settings-item form {
+  margin-top: 1.25rem;
+}
+.settings-item p {
+  margin-top: 1rem;
+}
+.settings-item.delete-account {
+  border-style: none;
+  margin-bottom: 3.052rem;
+}
+
+.settings-title {
+  margin-bottom: 1.563rem;
+}
+
+/*Add page*/
+.assign {
+  margin-top: 1.953rem;
+  margin-bottom: 1rem;
+  font-size: 1.25rem;
+}
+.assign .assign-item label {
+  font-size: 1rem;
+}
+
+/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <%- include("../partials/head"); %>
+  <body>
+    <!--homepage main-->
+    <div class="homepage-main">
+      <!--Concept title and little text-->
+      <div class="brand">
+        <div class="brand-container">
+          <img src="/img/logo2.png" alt="brand-logo" />
+          <div class="brand-text">
+            <h2>
+              A new way to sort it out complex scientific concepts into numerous
+              easily-comprehensible points
+            </h2>
+          </div>
+          <div class="to-do-call">
+            <h3>What are you waiting for? Join us!</h3>
+            <a href="/register"><button>Register now</button></a>
+          </div>
+        </div>
+      </div>
+      <!--login form-->
+      <div class="login">
+        <fieldset class="login-container">
+          <h1>Enter your account</h1>
+          <form method="POST" action="/users/login">
+            <!--email-->
+            <label for="email">Email:</label>
+            <input name="email" type="email" required /> <br />
+            <!--password-->
+            <label for="password">Password: </label>
+            <input name="password" type="password" required /> <br />
+            <a href=""><button type="submit">Login</button></a>
+          </form>
+        </fieldset>
+      </div>
+    </div>
+  </body>
+</html>

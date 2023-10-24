@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include("../partials/head"); %>
+  <body>
+    <%- include("../partials/header"); %>
+
+    <div class="page-content">
+      <a href="/subjects/show/<%=subject.id%>"
+        ><button>Back to subject</button></a
+      >
+      <h1>Edit subject</h1>
+      <form action="/subjects/edit/<%=subject.id%>/save-changes" method="POST">
+        <!--subject id-->
+        <input class="hidden" name="id" value="<%=subject.id%>" />
+        <!--subject name-->
+        <label for="subject">Subject:</label>
+        <input
+          type="text"
+          id="subject"
+          name="subject"
+          value="<%=subject.subject%>"
+        />
+        <br />
+
+        <!--subject description-->
+        <label for="description">Description:</label>
+        <input
+          id="description"
+          type="text"
+          name="description"
+          value="<%=subject.description%>"
+        />
+        <br />
+
+        <!--buttons-->
+        <a href="/subjects/show/<%=subject.id%>"
+          ><button>Save changes</button></a
+        >
+      </form>
+    </div>
+  </body>
+</html>

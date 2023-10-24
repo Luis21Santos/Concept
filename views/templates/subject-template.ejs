@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <%- include("../partials/head") %>
+  <body>
+    <%- include("../partials/header") %>
+    <div class="page-content">
+      <!--go back, delete and edit buttons-->
+      <ul class="no-bullet-list horizontal-list top-btns">
+        <li>
+          <a href="/<%=subject.userId%>"><button>Back to dashboard</button></a>
+        </li>
+        <li>
+          <a href="/subjects/edit/<%=subject.id%>"><button>Edit</button></a>
+        </li>
+        <li>
+          <a href="/subjects/delete/<%=subject.id%>"><button>Delete</button></a>
+        </li>
+      </ul>
+      <!--subject name-->
+      <p class="hidden color"><%=subject.color%></p>
+      <p class="name"><%=subject.subject%></p>
+      <div class="description"><p><%=subject.description%></p></div>
+
+      <div class="template-list">
+        <p class="template-list-title">Sections</p>
+        <!--no section added yet message-->
+        <% if(!relatedSections.length){ %>
+        <div class="empty-msg">
+          <p>No sections added yet</p>
+          <a href="/sections/create/<%=subject.userId%>"
+            ><button>Create one now!</button></a
+          >
+        </div>
+        <!--make the subject already pre-selected in the create section form if accessed from here-->
+        <% } %>
+        <!--sections per se-->
+        <ul class="no-bullet-list">
+          <% for(let n=0; n< relatedSections.length; n++) {%>
+          <div class="item-container">
+            <li>
+              <a href="/sections/show/<%= relatedSections[n].id%>"
+                ><%= relatedSections[n].section%></a
+              >
+            </li>
+          </div>
+
+          <% } %>
+        </ul>
+      </div>
+
+      <!--add new section from here. Develop later-->
+    </div>
+  </body>
+</html>

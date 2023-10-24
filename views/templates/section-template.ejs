@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <%- include("../partials/head") %>
+  <body>
+    <%- include("../partials/header") %>
+    <div class="page-content">
+      <!--go back, delete and edit buttons-->
+      <ul class="no-bullet-list horizontal-list top-btns">
+        <li>
+          <a href="/<%=section.userId%>"><button>Back to dashboard</button></a>
+        </li>
+        <li>
+          <a href="/sections/edit/<%=section.id%>"><button>Edit</button></a>
+        </li>
+        <li>
+          <a href="/sections/delete/<%=section.id%>"><button>Delete</button></a>
+        </li>
+      </ul>
+
+      <!--website map-->
+      <a href="/subjects/show/<%=subject.id%>"
+        ><p class="website-map"><%=subject.subject%></p></a
+      >
+      <!--section name-->
+      <p class="hidden color"><%=section.color%></p>
+      <p class="name"><%=section.section%></p>
+      <div class="description"><p><%=section.description%></p></div>
+
+      <div class="template-list">
+        <p class="template-list-title">Concepts</p>
+        <!--no concept message-->
+        <% if(!relatedConcepts.length){ %>
+        <div class="empty-msg">
+          <p>No concepts related to this section</p>
+          <a href="/concepts/create/<%=user.id%>"
+            ><button>Create one now</button></a
+          >
+        </div>
+        <% } %>
+
+        <!--list of concepts-->
+        <ul class="no-bullet-list">
+          <% for(let m=0; m< relatedConcepts.length; m++) {%>
+          <div class="item-container">
+            <li>
+              <a href="/concepts/show/<%=relatedConcepts[m].id%>"
+                ><%=relatedConcepts[m].concept%></a
+              >
+            </li>
+          </div>
+
+          <% }%>
+        </ul>
+      </div>
+    </div>
+  </body>
+</html>
